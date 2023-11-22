@@ -1,0 +1,5 @@
+{
+  "title": "Alzheimers Disease Onset Rcognition By Handwriting",
+  "description": "This study integrates machine learning (ML) and deep learning (DL) for early Alzheimer’s disease detection using handwriting analysis. We employed three approaches:Image Analysis with Deep Learning: We analyzed handwriting images using architectures like VGG19, ResNet50, and Inception models, focusing on extracting deep features to enhance model performance. Machine Learning Utilizing Deep Features: Classifiers including Decision Tree, Gradient Boosting, and SVM were tuned for optimal detection efficiency, leveraging deep learning features for improved accuracy. Pen Gesture Dynamics Analysis: We examined pen gestures, both on-air and on-paper, using various classifiers to understand motor impairments in Alzheimer's patients, applying feature selection to refine our dataset analysis. This comprehensive approach enhances the capability to distinguish healthy individuals from those with cognitive impairments, offering a promising direction for early Alzheimer's diagnosis.",
+  "images": ["E06_T02_HC6_076.png", "E06_T02_HC6_084.png", "inceptionv3.png"]
+}
