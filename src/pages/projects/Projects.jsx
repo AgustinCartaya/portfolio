@@ -2,6 +2,7 @@ import uniqid from 'uniqid';
 import useProjects from './useProjects';
 import styled from 'styled-components';
 import Carousel from 'nuka-carousel';
+const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
 
 const Projects = () => {
   const { jsonData } = useProjects();
@@ -9,11 +10,13 @@ const Projects = () => {
     <>
       {jsonData.length > 0 ? (
         <CustomProjectSection>
-          {jsonData.map(({ title, description }) => {
+          {jsonData.map(({ title, path, images, description }) => {
             return (
               <CustomProjectCard key={uniqid()}>
                 <Carousel wrapAround={true} className='project__carousel'>
-                  <img className='carousel_img' src="https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects/alzheimers_disease_onset_recognition_by_handwriting/images/inceptionv3.png" />
+                  {images.map((image) => {
+                    return (<img className='carousel_img' src={`${URL_IMAGE_BASE}/${path}/images/${image}`} />)
+                  })}
                 </Carousel>
                 <h4 className="title">{title}</h4>
                 <p className="content">{description}</p>

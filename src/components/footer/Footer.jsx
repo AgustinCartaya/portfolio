@@ -30,7 +30,7 @@ export default Footer;
 const CustomFooter = styled.footer`
   display: flex;
   justify-content: space-between;
-  background-color: #bababa;
+  background-color: #e8e8e8;
   padding: 15px 30px;
   border-radius: 0 0 5px 5px;
 
