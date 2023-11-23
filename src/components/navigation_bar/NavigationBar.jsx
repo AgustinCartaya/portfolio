@@ -51,16 +51,21 @@ const CustomListItem = styled.li`
   color: #000000;
   width: 100%;
 
+
+  &:nth-child(even) a {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+  }
+
   .active {
-    background-color: #afd0f3;
-    border-radius: 5px;
+    color: #afd0f3;
+    border-radius: 0;
   }
 
   a {
-    color: #fff;
-    background-color: #bababa;
+    color: #000000;
     padding: 10px;
     display: block;
-    border-radius: 5px;
+    border-radius: 0;
   }
 `

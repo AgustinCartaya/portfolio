@@ -20,4 +20,8 @@ export default App
 
 const Container = styled.div`
   padding: 30px;
+
+  @media (max-width: 800px) {
+    padding: 20px;
+  }
 `
