@@ -40,6 +40,7 @@ const CustomResumeSection = styled.div`
   position: relative;
   width: 100%;
   text-align: center;
+  padding-top: 30px;
 
   .react-pdf__Page__textContent.textLayer {
     display: none;
