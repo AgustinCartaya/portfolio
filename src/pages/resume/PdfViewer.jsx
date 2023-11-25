@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Document, Page, pdfjs } from 'react-pdf';
+import useDarkMode from '../../hooks/useDarkMode';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import pdf from '../../CV.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
-const DownloadIcon = () => <img style={{ filter: 'invert(1)' }} width="25" height="25" src="https://img.icons8.com/metro/25/download.png" alt="download" />;
+const DownloadIcon = ({ color }) => <img style={{ filter: color }} width="25" height="25" src="https://img.icons8.com/metro/25/download.png" alt="download" />;
 
 const PdfViewer = () => {
-  const pageNumber = 1;
   const [showTooltip, setShowTooltip] = useState(false);
+  const { isDarkMode } = useDarkMode();
+  const pageNumber = 1;
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -22,9 +24,9 @@ const PdfViewer = () => {
   return (
     <CustomResumeSection>
       <Container onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
-        {showTooltip && <Tooltip>Download  CV</Tooltip>}
+        {showTooltip && <Tooltip>Download CV</Tooltip>}
         <DownloadButton onClick={handleDownload} aria-label="Download CV">
-          <DownloadIcon />
+          <DownloadIcon color={isDarkMode ? 'invert(0)' : 'invert(1)'} />
         </DownloadButton>
       </Container>
       <Document file={pdf}>
@@ -34,7 +36,7 @@ const PdfViewer = () => {
   );
 };
 
-export default PdfViewer
+export default PdfViewer;
 
 const CustomResumeSection = styled.div`
   position: relative;
@@ -65,7 +67,7 @@ const DownloadButton = styled.button`
   border: 2px solid;
   cursor: pointer;
   transition: 0.5s all ease;
-  background-color: #000000;
+  background-color: ${({ theme }) => theme?.colors?.primary};
   z-index: 1;
   margin: 0;
   border-radius: 50%;
@@ -84,7 +86,7 @@ const DownloadButton = styled.button`
   }
 
   opacity: 0;
-  animation: fadeIn 0.7s forwards .8s;
+  animation: fadeIn 0.7s forwards 0.8s;
 
   @keyframes fadeIn {
     to {
@@ -103,8 +105,8 @@ const Tooltip = styled.div`
   position: absolute;
   top: -60px;
   right: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: ${({ theme }) => theme?.colors?.primary};;
+  color: ${({ theme }) => theme?.colors?.secondary};
   padding: 5px 15px;
   border-radius: 5px;
   z-index: 2;
@@ -115,5 +117,4 @@ const Tooltip = styled.div`
     right: 65px;
     font-size: 13px;
   }
-
 `;

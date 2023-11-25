@@ -28,5 +28,5 @@ export default Home;
 const CustomHomeSection = styled.section`
 `
 const Title = styled.h2`
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid ${({ theme }) => theme?.colors?.primary};;
 `

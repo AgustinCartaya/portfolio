@@ -44,13 +44,12 @@ const CustomList = styled.ul`
 
 const CustomListItem = styled.li`
   text-align: center;
-  color: #000000;
   width: 100%;
 
 
   &:nth-child(even) a {
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
+    border-left: 2px solid ${({ theme }) => theme?.colors?.primary};
+    border-right: 2px solid ${({ theme }) => theme?.colors?.primary};
   }
 
   .active {
@@ -59,7 +58,7 @@ const CustomListItem = styled.li`
   }
 
   a {
-    color: #000000;
+    color: ${({ theme }) => (theme?.colors?.primary)};
     padding: 10px;
     display: block;
     border-radius: 0;

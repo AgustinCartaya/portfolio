@@ -117,15 +117,16 @@ const CustomButton = styled.a`
   border: none;
   padding: 5px 15px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme?.colors?.secondary};
   font-family: inherit;
   font-size: 14px;
   cursor: pointer;
   transition: .5s all ease;
+  color: ${({ theme }) => theme?.colors?.primary};
 
   &:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: ${({ theme }) => theme?.colors?.primary};
+    color: ${({ theme }) => theme?.colors?.secondary};
   }
 `;
 

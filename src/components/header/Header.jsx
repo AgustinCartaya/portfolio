@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Header = () => {
+const Header = ({handleTheme}) => {
   return (
     <CustomHeader>
       <div className="header__profile">
@@ -12,8 +12,13 @@ const Header = () => {
         />
       </div>
       <div className="header__content">
+        <div className="header__toggle">
+          <button className="toggle__button" onClick={handleTheme}>
+            <img width="40" height="40" src="https://img.icons8.com/office/40/toggle-off.png" alt="toggle-off" />
+          </button>
+        </div>
         <h1 className="content__title">Agustin Cartaya</h1>
-        <span className='content__profesion'>Fullstack Developer</span>
+        <span className="content__profesion">Fullstack Developer</span>
         <p className="content__description">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
@@ -29,9 +34,11 @@ export default Header;
 const CustomHeader = styled.header`
   display: flex;
   column-gap: 30px;
+  color: ${({ theme }) => theme?.colors?.primary};
 
   .content__title {
     margin-bottom: 5px;
+    margin-top: 0;
   }
 
   .content__profesion {
@@ -39,8 +46,21 @@ const CustomHeader = styled.header`
   }
 
   .profile__image {
+    object-fit: cover;
     width: 100%;
     height: 100%;
+  }
+
+  .header__toggle {
+    display: flex;
+    justify-content: end;
+  }
+
+  .toggle__button {
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    background-color: inherit;
   }
 
   @media (max-width: 1200px) {
@@ -62,5 +82,3 @@ const CustomHeader = styled.header`
     }
   }
 `;
-
-

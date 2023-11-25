@@ -1,21 +1,40 @@
-import "./styles.css";
-import { Outlet } from "react-router-dom";
-import { Header, NavigationBar } from "./components";
-import styled from "styled-components";
+import './styles.css';
+import { Outlet } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
+import { Header, NavigationBar } from './components';
+import Theme from './Theme';
+import { ProviderDarkMode } from './context/darkMode';
+import useDarkMode from './hooks/useDarkMode';
 
 const App = () => {
-  return (
-    <main className="main">
-      <Container>
-        <Header />
-        <NavigationBar />
-        <Outlet />
-      </Container>
-    </main>
-  );
-}
+  const { isDarkMode, setIsDarkMode } = useDarkMode();
 
-export default App
+  const handleTheme = () => {
+    console.log('test')
+    setIsDarkMode(prevMode => !prevMode);
+    localStorage.setItem('darkmode', JSON.stringify(!isDarkMode));
+  };
+
+  return (
+    <CustomMain>
+      <Theme>
+        <GlobalStyle />
+        <Container>
+          <Header handleTheme={handleTheme} />
+          <NavigationBar />
+          <Outlet />
+        </Container>
+      </Theme>
+    </CustomMain>
+  );
+};
+
+export default App;
+
+const CustomMain = styled.main`
+  border-radius: 5px;
+  max-width: 1200px;
+`;
 
 const Container = styled.div`
   padding: 30px;
@@ -23,4 +42,11 @@ const Container = styled.div`
   @media (max-width: 800px) {
     padding: 20px;
   }
-`
+`;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => theme?.colors?.backgroundDefault};
+    color: ${({ theme }) => theme?.colors?.primary};
+  }
+`;
