@@ -81,6 +81,15 @@ const DownloadButton = styled.button`
       height: 15px;
     }
   }
+
+  opacity: 0;
+  animation: fadeIn 0.7s forwards .8s;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const Container = styled.div`
