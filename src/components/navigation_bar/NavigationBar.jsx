@@ -30,10 +30,6 @@ export default NavigationBar;
 
 
 const CustomNav = styled.nav`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 5px;
   padding: 30px 0;
 `
 const CustomList = styled.ul`
@@ -67,5 +63,12 @@ const CustomListItem = styled.li`
     padding: 10px;
     display: block;
     border-radius: 0;
+  }
+
+  @media (max-width: 400px) {
+    &:nth-child(even) a {
+      border-left: none;
+      border-right: none;
+    }
   }
 `

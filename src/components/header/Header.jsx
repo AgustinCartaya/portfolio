@@ -48,15 +48,17 @@ const CustomHeader = styled.header`
     justify-content: center;
 
     .profile__image {
-      width: 400px;
-      height: 400px;
+      box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
+      border-radius: 50%;
+      width: 350px;
+      height: 350px;
     }
   }
 
   @media (max-width: 500px) {
     .profile__image {
-      width: 100%;
-      height: 100%;
+      width: 250px;
+      height: 250px;
     }
   }
 `;

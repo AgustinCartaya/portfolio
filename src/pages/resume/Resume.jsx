@@ -27,6 +27,7 @@ export default Resume;
 
 const CustomResumeSection = styled.div`
   width: 100%;
+  text-align: center;
 
   .react-pdf__Page__textContent.textLayer{
     display: none;

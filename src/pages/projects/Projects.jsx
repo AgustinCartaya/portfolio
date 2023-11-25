@@ -40,7 +40,7 @@ const Projects = () => {
           })}
         </CustomProjectSection>
       ) : (
-        <CustomLoading>Loading...</CustomLoading>
+        <CustomLoading>Loading Projects...</CustomLoading>
       )}
     </>
   );
