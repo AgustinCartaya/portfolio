@@ -100,10 +100,12 @@ const Tooltip = styled.div`
   padding: 5px 15px;
   border-radius: 5px;
   z-index: 2;
+  font-family: inherit;
 
   @media (max-width: 500px) {
     top: -17px;
     right: 65px;
+    font-size: 13px;
   }
 
 `;
