@@ -1,6 +1,6 @@
 import "./styles.css";
 import { Outlet } from "react-router-dom";
-import { Header, NavigationBar, Footer} from "./components";
+import { Header, NavigationBar } from "./components";
 import styled from "styled-components";
 
 const App = () => {
@@ -11,7 +11,6 @@ const App = () => {
         <NavigationBar />
         <Outlet />
       </Container>
-      <Footer />
     </main>
   );
 }

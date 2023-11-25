@@ -115,8 +115,8 @@ const CustomButton = styled.a`
   text-decoration: none;
   border-radius: 5px;
   border: none;
-  padding: 5px 10px;
-  border: 1px solid#afd0f3;
+  padding: 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
   background-color: #fff;
   font-family: inherit;
   font-size: 14px;
@@ -124,11 +124,12 @@ const CustomButton = styled.a`
   transition: .5s all ease;
 
   &:hover {
-    background-color: #afd0f3;
+    background-color: #000;
     color: #fff;
   }
 `;
 
 const CustomLoading = styled.p`
   min-height: 800px;
+  text-align: center;
 `;

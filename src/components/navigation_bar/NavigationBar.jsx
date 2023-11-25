@@ -58,7 +58,7 @@ const CustomListItem = styled.li`
   }
 
   .active {
-    color: #afd0f3;
+    font-weight: 600;
     border-radius: 0;
   }
 
