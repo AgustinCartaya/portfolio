@@ -1,6 +1,7 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
 import useFetchDataFromGithubApi from '../../hooks/useFetchDataFromGithubApi';
+import { LoadingMessage } from '../../components';
 const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
 const Publications = () => {
   const { jsonData: publications } = useFetchDataFromGithubApi('src/my_projects');
@@ -25,7 +26,7 @@ const Publications = () => {
           })}
         </CustomPublicationsSection>
       ) : (
-        <CustomLoading>Loading Publications...</CustomLoading>
+        <LoadingMessage message="Loading Publications..." />
       )}
     </>
   );
@@ -98,8 +99,6 @@ const CustomPublicationsCard = styled.div`
   &:hover .overlay {
     transform: scaleY(1);
   }
-
-
 `;
 
 const CustomContainerBtn = styled.div`
@@ -125,9 +124,4 @@ const CustomButton = styled.a`
     background-color: ${({ theme }) => theme?.colors?.primary};
     color: ${({ theme }) => theme?.colors?.secondary};
   }
-`;
-
-const CustomLoading = styled.p`
-  min-height: 800px;
-  text-align: center;
 `;

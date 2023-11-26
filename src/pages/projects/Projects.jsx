@@ -2,6 +2,7 @@ import uniqid from 'uniqid';
 import styled from 'styled-components';
 import Carousel from 'nuka-carousel';
 import useFetchDataFromGithubApi from '../../hooks/useFetchDataFromGithubApi';
+import { LoadingMessage } from '../../components';
 const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
 const CarouselButton = (image) => <img style={{filter: "invert(1)"}} width="15" height="15" src={`https://img.icons8.com/ios-glyphs/30/000000/${image}.png`} alt={image} />
 
@@ -41,7 +42,7 @@ const Projects = () => {
           })}
         </CustomProjectSection>
       ) : (
-        <CustomLoading>Loading Projects...</CustomLoading>
+        <LoadingMessage message="Loading Projects..."/>
       )}
     </>
   );
@@ -130,9 +131,4 @@ const CustomButton = styled.a`
     background-color: ${({ theme }) => theme?.colors?.primary};
     color: ${({ theme }) => theme?.colors?.secondary};
   }
-`;
-
-const CustomLoading = styled.p`
-  min-height: 800px;
-  text-align: center;
 `;

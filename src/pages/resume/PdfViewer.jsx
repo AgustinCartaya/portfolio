@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Document, Page, pdfjs } from 'react-pdf';
-import useDarkMode from '../../hooks/useDarkMode';
+import styled from 'styled-components';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+
+import { LoadingMessage } from '../../components';
+import useDarkMode from '../../hooks/useDarkMode';
 import pdf from '../../CV.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
@@ -11,6 +14,7 @@ const DownloadIcon = ({ color }) => <img style={{ filter: color }} width="25" he
 
 const PdfViewer = () => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { isDarkMode } = useDarkMode();
   const pageNumber = 1;
 
@@ -21,15 +25,21 @@ const PdfViewer = () => {
     link.click();
   };
 
+  const handleLoadSuccess = () => {
+    setLoading(false);
+  };
+
   return (
     <CustomResumeSection>
-      <Container onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
-        {showTooltip && <Tooltip>Download CV</Tooltip>}
-        <DownloadButton onClick={handleDownload} aria-label="Download CV">
-          <DownloadIcon color={isDarkMode ? 'invert(0)' : 'invert(1)'} />
-        </DownloadButton>
-      </Container>
-      <Document file={pdf}>
+      {!loading && (
+        <Container onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+          {showTooltip && <Tooltip>Download CV</Tooltip>}
+          <DownloadButton onClick={handleDownload} aria-label="Download CV">
+            <DownloadIcon color={isDarkMode ? 'invert(0)' : 'invert(1)'} />
+          </DownloadButton>
+        </Container>
+      )}
+      <Document file={pdf} onLoadSuccess={handleLoadSuccess} loading={<LoadingMessage message="Loading PDF..."/>}>
         <Page pageNumber={pageNumber} />
       </Document>
     </CustomResumeSection>
@@ -105,7 +115,7 @@ const Tooltip = styled.div`
   position: absolute;
   top: -60px;
   right: 0;
-  background-color: ${({ theme }) => theme?.colors?.primary};;
+  background-color: ${({ theme }) => theme?.colors?.primary};
   color: ${({ theme }) => theme?.colors?.secondary};
   padding: 5px 15px;
   border-radius: 5px;
