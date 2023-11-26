@@ -106,10 +106,6 @@ const CustomProjectCard = styled.div`
     height: 100%;
     object-fit: cover;
   }
-
-  &:hover {
-    transform: scale(1.05);
-  }
 `;
 
 const CustomContainerBtn = styled.div`

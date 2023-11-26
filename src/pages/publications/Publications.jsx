@@ -99,9 +99,7 @@ const CustomPublicationsCard = styled.div`
     transform: scaleY(1);
   }
 
-  &:hover {
-    transform: scale(1.05);
-  }
+
 `;
 
 const CustomContainerBtn = styled.div`
