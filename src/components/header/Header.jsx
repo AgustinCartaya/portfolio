@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import useDarkMode from '../../hooks/useDarkMode';
 
-const Header = ({handleTheme}) => {
+const Header = ({ handleTheme }) => {
+  const { isDarkMode } = useDarkMode();
+  const handleThemeIcon = isDarkMode ? (
+    <img style={{ filter: 'invert(1)' }} width="40" height="40" src={`https://img.icons8.com/ios-filled/40/000000/crescent-moon.png`} alt='crescent-moon' />
+  ) : (
+    <img width="40" height="40" src={`https://img.icons8.com/ios/40/sun--v1.png`} alt='sun--v1' />
+  );
+
   return (
     <CustomHeader>
       <div className="header__profile">
@@ -14,14 +22,14 @@ const Header = ({handleTheme}) => {
       <div className="header__content">
         <div className="header__toggle">
           <button className="toggle__button" onClick={handleTheme}>
-            <img width="40" height="40" src="https://img.icons8.com/office/40/toggle-off.png" alt="toggle-off" />
+            {handleThemeIcon}
           </button>
         </div>
         <h1 className="content__title">Agustin Cartaya</h1>
         <span className="content__profesion">Fullstack Developer</span>
         <p className="content__description">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+          1400s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
           the leap into electronic typesetting, remaining essentially unchanged.
         </p>
       </div>
