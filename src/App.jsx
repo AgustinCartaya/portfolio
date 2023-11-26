@@ -3,14 +3,12 @@ import { Outlet } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Header, NavigationBar } from './components';
 import Theme from './Theme';
-import { ProviderDarkMode } from './context/darkMode';
 import useDarkMode from './hooks/useDarkMode';
 
 const App = () => {
   const { isDarkMode, setIsDarkMode } = useDarkMode();
 
   const handleTheme = () => {
-    console.log('test')
     setIsDarkMode(prevMode => !prevMode);
     localStorage.setItem('darkmode', JSON.stringify(!isDarkMode));
   };

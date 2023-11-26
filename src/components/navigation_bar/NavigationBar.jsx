@@ -5,8 +5,8 @@ import styled from "styled-components"
 const nav_items = [
   { url: "/", title: "Home" },
   { url: "/projects", title: "Projects" },
-  { url: "/services", title: "Services" },
-  { url: "/contact", title: "Contact" },
+  { url: "/publications", title: "Publications" },
+  { url: "/awards", title: "Awards" },
   { url: "/resume", title: "Resume" }
 ];
 

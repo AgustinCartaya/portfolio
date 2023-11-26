@@ -1,5 +1,5 @@
 import App from "./App";
-import { Home, Projects, Services, Contact, Resume } from "./pages";
+import { Home, Projects, Publications, Awards, Resume } from "./pages";
 
 const Routes = {
   path: "/",
@@ -14,12 +14,12 @@ const Routes = {
       element: <Projects />
     },
     {
-      path: "/services",
-      element: <Services />
+      path: "/publications",
+      element: <Publications />
     },
     {
-      path: "/contact",
-      element: <Contact />
+      path: "/awards",
+      element: <Awards />
     },
     {
       path: "/resume",

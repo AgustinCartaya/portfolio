@@ -1,17 +1,18 @@
 import uniqid from 'uniqid';
-import useProjects from './useProjects';
 import styled from 'styled-components';
 import Carousel from 'nuka-carousel';
+import useFetchDataFromGithubApi from '../../hooks/useFetchDataFromGithubApi';
 const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
 const CarouselButton = (image) => <img style={{filter: "invert(1)"}} width="15" height="15" src={`https://img.icons8.com/ios-glyphs/30/000000/${image}.png`} alt={image} />
 
 const Projects = () => {
-  const { jsonData } = useProjects();
+  const { jsonData: projects } = useFetchDataFromGithubApi('src/my_projects');
+
   return (
     <>
-      {jsonData.length > 0 ? (
+      {projects.length > 0 ? (
         <CustomProjectSection>
-          {[...jsonData, ...jsonData].map(({ title, path, images, description }) => {
+          {[...projects, ...projects, ...projects].map(({ title, path, images, description }) => {
             return (
               <CustomProjectCard key={uniqid()}>
                 <Carousel
@@ -115,7 +116,7 @@ const CustomButton = styled.a`
   text-decoration: none;
   border-radius: 5px;
   border: none;
-  padding: 5px 15px;
+  padding: 8px 15px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
   background-color: ${({ theme }) => theme?.colors?.secondary};
   font-family: inherit;
