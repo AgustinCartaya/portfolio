@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Routes from "./routes";
 import { ProviderDarkMode } from "./context/darkMode";
+import 'material-icons/iconfont/material-icons.css';
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

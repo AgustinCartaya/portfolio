@@ -5,9 +5,11 @@ import useDarkMode from '../../hooks/useDarkMode';
 const Header = ({ handleTheme }) => {
   const { isDarkMode } = useDarkMode();
   const handleThemeIcon = isDarkMode ? (
-    <img style={{ filter: 'invert(1)' }} width="40" height="40" src={`https://img.icons8.com/ios-filled/40/000000/crescent-moon.png`} alt='crescent-moon' />
+    <span className={'material-icons-outlined icon'} style={{ color: '#fff' }}>
+      wb_sunny
+    </span>
   ) : (
-    <img width="40" height="40" src={`https://img.icons8.com/ios/40/sun--v1.png`} alt='sun--v1' />
+    <span className={'material-icons icon'}>dark_mode</span>
   );
 
   return (
@@ -69,6 +71,10 @@ const CustomHeader = styled.header`
     height: 40px;
     cursor: pointer;
     background-color: inherit;
+  }
+
+  .icon {
+    font-size: 30px;
   }
 
   @media (max-width: 1200px) {

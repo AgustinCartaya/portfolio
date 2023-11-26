@@ -10,8 +10,6 @@ import pdf from '../../CV.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
-const DownloadIcon = ({ color }) => <img style={{ filter: color }} width="25" height="25" src="https://img.icons8.com/metro/25/download.png" alt="download" />;
-
 const PdfViewer = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -29,13 +27,21 @@ const PdfViewer = () => {
     setLoading(false);
   };
 
+  const handleThemeIcon = isDarkMode ? (
+    <span className={'material-icons-outlined icon'}>
+      wb_sunny
+    </span>
+  ) : (
+    <span className={'material-icons icon'} style={{ color: '#fff' }}>file_download</span>
+  );
+
   return (
     <CustomResumeSection>
       {!loading && (
         <Container onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
           {showTooltip && <Tooltip>Download CV</Tooltip>}
           <DownloadButton onClick={handleDownload} aria-label="Download CV">
-            <DownloadIcon color={isDarkMode ? 'invert(0)' : 'invert(1)'} />
+            {handleThemeIcon}
           </DownloadButton>
         </Container>
       )}
@@ -69,6 +75,8 @@ const CustomResumeSection = styled.div`
 `;
 
 const DownloadButton = styled.button`
+  display: grid;
+  place-items: center;
   position: absolute;
   top: -25px;
   right: 30px;
@@ -81,17 +89,16 @@ const DownloadButton = styled.button`
   z-index: 1;
   margin: 0;
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
+
+  .icon {
+    font-size: 32px;
+  }
 
   @media (max-width: 500px) {
-    width: 50px;
-    height: 50px;
     right: 10px;
 
-    img {
-      width: 15px;
-      height: 15px;
+    .icon {
+      font-size: 26px;
     }
   }
 
