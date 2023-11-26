@@ -252,10 +252,6 @@ Error generating stack: `+i.message+`
     height: 100%;
     object-fit: cover;
   }
-
-  &:hover {
-    transform: scale(1.05);
-  }
 `,Pw=Me.div`
   display: flex;
   gap: 10px;
@@ -343,9 +339,7 @@ Error generating stack: `+i.message+`
     transform: scaleY(1);
   }
 
-  &:hover {
-    transform: scale(1.05);
-  }
+
 `,jw=Me.div`
   display: flex;
   justify-content: end;
@@ -370,10 +364,10 @@ Error generating stack: `+i.message+`
 `,Iw=Me.p`
   min-height: 800px;
   text-align: center;
-`,Ow="modulepreload",$w=function(e){return"https://agustincartaya.github.io/portfolio/"+e},rd={},zw=function(t,n,r){if(!n||n.length===0)return t();const o=document.getElementsByTagName("link");return Promise.all(n.map(i=>{if(i=$w(i),i in rd)return;rd[i]=!0;const l=i.endsWith(".css"),a=l?'[rel="stylesheet"]':"";if(!!r)for(let c=o.length-1;c>=0;c--){const m=o[c];if(m.href===i&&(!l||m.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${i}"]${a}`))return;const u=document.createElement("link");if(u.rel=l?"stylesheet":Ow,l||(u.as="script",u.crossOrigin=""),u.href=i,document.head.appendChild(u),l)return new Promise((c,m)=>{u.addEventListener("load",c),u.addEventListener("error",()=>m(new Error(`Unable to preload CSS for ${i}`)))})})).then(()=>t()).catch(i=>{const l=new Event("vite:preloadError",{cancelable:!0});if(l.payload=i,window.dispatchEvent(l),!l.defaultPrevented)throw i})},Aw=x.lazy(()=>zw(()=>import("./PdfViewer-tY2iJvw6.js"),__vite__mapDeps([0,1]))),Fw=()=>N.jsx(x.Suspense,{fallback:"",children:N.jsx(Aw,{})}),Uw={path:"/",element:N.jsx(I1,{}),children:[{path:"/",element:N.jsx(F1,{})},{path:"/projects",element:N.jsx(Ew,{})},{path:"/publications",element:N.jsx(Lw,{})},{path:"/awards",element:N.jsx(A1,{})},{path:"/resume",element:N.jsx(Fw,{})}]},Bw=document.getElementById("root"),Vw=yh(Bw),Ww=J0([Uw]);Vw.render(N.jsx(x.StrictMode,{children:N.jsx(y1,{children:N.jsx(iy,{router:Ww})})}));export{it as R,x as a,x1 as c,eu as g,N as j,C1 as r,Me as s,ic as u};
+`,Ow="modulepreload",$w=function(e){return"https://agustincartaya.github.io/portfolio/"+e},rd={},zw=function(t,n,r){if(!n||n.length===0)return t();const o=document.getElementsByTagName("link");return Promise.all(n.map(i=>{if(i=$w(i),i in rd)return;rd[i]=!0;const l=i.endsWith(".css"),a=l?'[rel="stylesheet"]':"";if(!!r)for(let c=o.length-1;c>=0;c--){const m=o[c];if(m.href===i&&(!l||m.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${i}"]${a}`))return;const u=document.createElement("link");if(u.rel=l?"stylesheet":Ow,l||(u.as="script",u.crossOrigin=""),u.href=i,document.head.appendChild(u),l)return new Promise((c,m)=>{u.addEventListener("load",c),u.addEventListener("error",()=>m(new Error(`Unable to preload CSS for ${i}`)))})})).then(()=>t()).catch(i=>{const l=new Event("vite:preloadError",{cancelable:!0});if(l.payload=i,window.dispatchEvent(l),!l.defaultPrevented)throw i})},Aw=x.lazy(()=>zw(()=>import("./PdfViewer-mT5pvfkP.js"),__vite__mapDeps([0,1]))),Fw=()=>N.jsx(x.Suspense,{fallback:"",children:N.jsx(Aw,{})}),Uw={path:"/",element:N.jsx(I1,{}),children:[{path:"/",element:N.jsx(F1,{})},{path:"/projects",element:N.jsx(Ew,{})},{path:"/publications",element:N.jsx(Lw,{})},{path:"/awards",element:N.jsx(A1,{})},{path:"/resume",element:N.jsx(Fw,{})}]},Bw=document.getElementById("root"),Vw=yh(Bw),Ww=J0([Uw]);Vw.render(N.jsx(x.StrictMode,{children:N.jsx(y1,{children:N.jsx(iy,{router:Ww})})}));export{it as R,x as a,x1 as c,eu as g,N as j,C1 as r,Me as s,ic as u};
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = ["assets/PdfViewer-tY2iJvw6.js","assets/PdfViewer-VJUOgePC.css"]
+    __vite__mapDeps.viteFileDeps = ["assets/PdfViewer-mT5pvfkP.js","assets/PdfViewer-VJUOgePC.css"]
   }
   return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
 }
