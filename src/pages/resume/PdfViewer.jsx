@@ -28,11 +28,11 @@ const PdfViewer = () => {
   };
 
   const handleThemeIcon = isDarkMode ? (
-    <span className={'material-icons-outlined icon'}>
-      wb_sunny
-    </span>
+    <span className={'material-icons icon'}>file_download</span>
   ) : (
-    <span className={'material-icons icon'} style={{ color: '#fff' }}>file_download</span>
+    <span className={'material-icons icon'} style={{ color: '#fff' }}>
+      file_download
+    </span>
   );
 
   return (
@@ -45,7 +45,7 @@ const PdfViewer = () => {
           </DownloadButton>
         </Container>
       )}
-      <Document file={pdf} onLoadSuccess={handleLoadSuccess} loading={<LoadingMessage message="Loading PDF..."/>}>
+      <Document file={pdf} onLoadSuccess={handleLoadSuccess} loading={<LoadingMessage message="Loading PDF..." />}>
         <Page pageNumber={pageNumber} />
       </Document>
     </CustomResumeSection>
