@@ -54,7 +54,8 @@ const CustomPublicationsCard = styled.div`
   justify-content: space-between;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
-
+  transition: .5s all ease;
+  
   .title, .content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -71,12 +72,12 @@ const CustomPublicationsCard = styled.div`
 
   .content {
     font-size: 14px;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 6;
   }
 
   .img {
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
   }
 
@@ -89,6 +90,17 @@ const CustomPublicationsCard = styled.div`
     background-color: rgba(34, 34, 34, 0.5);
     padding: 30px;
     height: 100px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .overlay {
+    transform: scaleY(1);
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 
