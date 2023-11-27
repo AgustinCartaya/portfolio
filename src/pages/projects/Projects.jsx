@@ -27,7 +27,7 @@ const Projects = () => {
                   }}
                 >
                   {images.map(image => {
-                    return <img key={uniqid()} className="carousel_img" src={`${URL_IMAGE_BASE}/${path}/images/${image}`} />;
+                    return <img key={uniqid()} loading="lazy" className="carousel_img" src={`${URL_IMAGE_BASE}/${path}/images/${image}`} />;
                   })}
                 </Carousel>
                 <h4 className="title">{title}</h4>

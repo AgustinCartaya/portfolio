@@ -13,7 +13,7 @@ const Publications = () => {
           {[...publications, ...publications, ...publications].map(({ title, path, images, description }) => {
             return (
               <CustomPublicationsCard key={uniqid()}>
-                <img className="img" src={`${URL_IMAGE_BASE}/${path}/images/${images.at(-1)}`} />
+                <img loading="lazy" className="img" src={`${URL_IMAGE_BASE}/${path}/images/${images.at(-1)}`} />
                 <div className="overlay">
                     <h4 className="title">{title}</h4>
                 </div>
