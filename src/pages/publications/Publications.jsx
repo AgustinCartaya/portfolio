@@ -26,7 +26,7 @@ const Publications = () => {
           })}
         </CustomPublicationsSection>
       ) : (
-        <LoadingMessage message="Loading Publications..." />
+        null
       )}
     </>
   );

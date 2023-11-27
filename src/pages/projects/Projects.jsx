@@ -42,7 +42,7 @@ const Projects = () => {
           })}
         </CustomProjectSection>
       ) : (
-        <LoadingMessage message="Loading Projects..."/>
+        null
       )}
     </>
   );
