@@ -1,4 +1,4 @@
-import{j as t,u as l,s as a}from"./index-602ZtZvM.js";import{u as e}from"./useFetchDataFromGithubApi-NyILAO1R.js";const c="https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects",g=()=>{const{jsonData:o}=e("src/my_projects");return t.jsx(t.Fragment,{children:o.length>0?t.jsx(p,{children:[...o,...o,...o].map(({title:i,path:r,images:s,description:n})=>t.jsxs(d,{children:[t.jsx("img",{loading:"lazy",className:"img",src:`${c}/${r}/images/${s.at(-1)}`}),t.jsx("div",{className:"overlay",children:t.jsx("h4",{className:"title",children:i})}),t.jsx("p",{className:"content",children:n}),t.jsx(x,{children:t.jsx(u,{children:"Download"})})]},l()))}):null})},p=a.div`
+import{j as a,u as e,s as r}from"./index-VsBuxk_P.js";import{u as c,f as p}from"./fetchDataFromGithubUrls-NcCFv9xr.js";const d="https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects",y=()=>{const{data:o,isLoading:i}=c({queryKey:["publications"],queryFn:()=>p("src/my_projects"),config:{staleTime:864e5}});return a.jsx(a.Fragment,{children:i?null:a.jsx(x,{children:Array(3).fill(o).flat().map(({title:t,path:s,images:n,description:l})=>a.jsxs(u,{children:[a.jsx("img",{loading:"lazy",className:"img",src:`${d}/${s}/images/${n.at(-1)}`}),a.jsx("div",{className:"overlay",children:a.jsx("h4",{className:"title",children:t})}),a.jsx("p",{className:"content",children:l}),a.jsx(f,{children:a.jsx(m,{children:"Download"})})]},e()))})})},x=r.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -10,16 +10,17 @@ import{j as t,u as l,s as a}from"./index-602ZtZvM.js";import{u as e}from"./useFe
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
-`,d=a.div`
+`,u=r.div`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
-  transition: .5s all ease;
-  
-  .title, .content {
+  transition: 0.5s all ease;
+
+  .title,
+  .content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -61,11 +62,11 @@ import{j as t,u as l,s as a}from"./index-602ZtZvM.js";import{u as e}from"./useFe
   &:hover .overlay {
     transform: scaleY(1);
   }
-`,x=a.div`
+`,f=r.div`
   display: flex;
   justify-content: end;
   gap: 10px;
-`,u=a.a`
+`,m=r.a`
   text-decoration: none;
   border-radius: 5px;
   border: none;
@@ -75,11 +76,11 @@ import{j as t,u as l,s as a}from"./index-602ZtZvM.js";import{u as e}from"./useFe
   font-family: inherit;
   font-size: 14px;
   cursor: pointer;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
   color: ${({theme:o})=>{var i;return(i=o==null?void 0:o.colors)==null?void 0:i.primary}};
 
   &:hover {
     background-color: ${({theme:o})=>{var i;return(i=o==null?void 0:o.colors)==null?void 0:i.primary}};
     color: ${({theme:o})=>{var i;return(i=o==null?void 0:o.colors)==null?void 0:i.secondary}};
   }
-`;export{g as default};
+`;export{y as default};
