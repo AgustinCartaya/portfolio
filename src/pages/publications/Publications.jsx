@@ -1,21 +1,29 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-import useFetchDataFromGithubApi from '../../hooks/useFetchDataFromGithubApi';
-import { LoadingMessage } from '../../components';
+import { useQuery } from '@tanstack/react-query';
+import fetchDataFromUrls from '../../api/fetchDataFromGithubUrls';
+
 const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
+
 const Publications = () => {
-  const { jsonData: publications } = useFetchDataFromGithubApi('src/my_projects');
+  const { data: publications, isLoading } = useQuery({
+    queryKey: ['publications'],
+    queryFn: () => fetchDataFromUrls('src/my_projects'),
+    config: {
+      staleTime: 86400000, // 24 hours
+    },
+  });
 
   return (
     <>
-      {publications.length > 0 ? (
+      {isLoading ? null : (
         <CustomPublicationsSection>
-          {[...publications, ...publications, ...publications].map(({ title, path, images, description }) => {
+          {Array(3).fill(publications).flat().map(({ title, path, images, description }) => {
             return (
               <CustomPublicationsCard key={uniqid()}>
                 <img loading="lazy" className="img" src={`${URL_IMAGE_BASE}/${path}/images/${images.at(-1)}`} />
                 <div className="overlay">
-                    <h4 className="title">{title}</h4>
+                  <h4 className="title">{title}</h4>
                 </div>
                 <p className="content">{description}</p>
                 <CustomContainerBtn>
@@ -25,8 +33,6 @@ const Publications = () => {
             );
           })}
         </CustomPublicationsSection>
-      ) : (
-        null
       )}
     </>
   );
@@ -55,9 +61,10 @@ const CustomPublicationsCard = styled.div`
   justify-content: space-between;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
-  transition: .5s all ease;
-  
-  .title, .content {
+  transition: 0.5s all ease;
+
+  .title,
+  .content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -117,7 +124,7 @@ const CustomButton = styled.a`
   font-family: inherit;
   font-size: 14px;
   cursor: pointer;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
   color: ${({ theme }) => theme?.colors?.primary};
 
   &:hover {
