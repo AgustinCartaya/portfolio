@@ -16,6 +16,7 @@ const Header = ({ handleTheme }) => {
     <CustomHeader>
       <div className="header__profile">
         <img
+          loading="lazy"
           className="profile__image"
           src="https://media.licdn.com/dms/image/D4E03AQEX13U_EAPVPg/profile-displayphoto-shrink_800_800/0/1690586175514?e=1705536000&v=beta&t=dsT25WiPtqgDp4FQK6tIg3gdaN-4V-DPd3SKblSowqA"
           alt="profile-picture"

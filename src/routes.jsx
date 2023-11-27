@@ -29,7 +29,7 @@ const Routes = {
     {
       path: '/projects',
       element: (
-        <LazyLoad height={200}>
+        <LazyLoad height={50}>
           <Suspense fallback={<LoadingMessage message="Loading Projects..." />}>
             <Projects />
           </Suspense>
@@ -39,7 +39,7 @@ const Routes = {
     {
       path: '/publications',
       element: (
-        <LazyLoad height={200}>
+        <LazyLoad height={50}>
           <Suspense fallback={<LoadingMessage message="Loading Publications..." />}>
             <Publications />
           </Suspense>
