@@ -1,4 +1,4 @@
-import{j as a,u as e,s as r}from"./index-VsBuxk_P.js";import{u as c,f as p}from"./fetchDataFromGithubUrls-NcCFv9xr.js";const d="https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects",y=()=>{const{data:o,isLoading:i}=c({queryKey:["publications"],queryFn:()=>p("src/my_projects"),config:{staleTime:864e5}});return a.jsx(a.Fragment,{children:i?null:a.jsx(x,{children:Array(3).fill(o).flat().map(({title:t,path:s,images:n,description:l})=>a.jsxs(u,{children:[a.jsx("img",{loading:"lazy",className:"img",src:`${d}/${s}/images/${n.at(-1)}`}),a.jsx("div",{className:"overlay",children:a.jsx("h4",{className:"title",children:t})}),a.jsx("p",{className:"content",children:l}),a.jsx(f,{children:a.jsx(m,{children:"Download"})})]},e()))})})},x=r.div`
+import{j as a,r as l,L as c,u as p,s}from"./index-kDJ3vL86.js";import{u as d,_ as x,f as u}from"./fetchDataFromGithubUrls-woa_MW6U.js";import"./index-YJBwLIFB.js";const f="https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects",h=()=>{const{data:o,isLoading:i}=d({queryKey:["publications"],queryFn:()=>u("src/my_projects"),config:{staleTime:864e5}});return a.jsx(x,{height:50,children:a.jsx(l.Suspense,{fallback:null,children:i?a.jsx(c,{message:"Loading Publications..."}):a.jsx(g,{children:Array(3).fill(o).flat().map(({title:r,path:n,images:t,description:e})=>a.jsxs(m,{children:[a.jsx("img",{className:"img",src:`${f}/${n}/images/${t.at(-1)}`,alt:t.at(-1)}),a.jsx("div",{className:"overlay",children:a.jsx("h4",{className:"title",children:r})}),a.jsx("p",{className:"content",children:e}),a.jsx(b,{children:a.jsx(y,{children:"Download"})})]},p()))})})})},g=s.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -10,7 +10,7 @@ import{j as a,u as e,s as r}from"./index-VsBuxk_P.js";import{u as c,f as p}from"
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
-`,u=r.div`
+`,m=s.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -62,11 +62,11 @@ import{j as a,u as e,s as r}from"./index-VsBuxk_P.js";import{u as c,f as p}from"
   &:hover .overlay {
     transform: scaleY(1);
   }
-`,f=r.div`
+`,b=s.div`
   display: flex;
   justify-content: end;
   gap: 10px;
-`,m=r.a`
+`,y=s.a`
   text-decoration: none;
   border-radius: 5px;
   border: none;
@@ -83,4 +83,4 @@ import{j as a,u as e,s as r}from"./index-VsBuxk_P.js";import{u as c,f as p}from"
     background-color: ${({theme:o})=>{var i;return(i=o==null?void 0:o.colors)==null?void 0:i.primary}};
     color: ${({theme:o})=>{var i;return(i=o==null?void 0:o.colors)==null?void 0:i.secondary}};
   }
-`;export{y as default};
+`;export{h as default};
