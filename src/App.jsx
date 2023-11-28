@@ -1,7 +1,7 @@
 import './styles.css';
 import { Outlet } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Header, NavigationBar } from './components';
+import { Header, LoadingMessage, NavigationBar } from './components';
 import Theme from './Theme';
 import useDarkMode from './hooks/useDarkMode';
 import { Suspense } from 'react';
@@ -21,7 +21,7 @@ const App = () => {
         <Container>
           <Header handleTheme={handleTheme} />
           <NavigationBar />
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingMessage message=""/>}>
             <Outlet />
           </Suspense>
         </Container>

@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import useDarkMode from '../../hooks/useDarkMode';
 
-const Header = ({ handleTheme }) => {
-  const { isDarkMode } = useDarkMode();
-  const handleThemeIcon = isDarkMode ? (
+const ThemeIcon = ({ isDarkMode }) =>
+  isDarkMode ? (
     <span className={'material-icons-outlined icon'} style={{ color: '#fff' }}>
       wb_sunny
     </span>
@@ -12,6 +11,8 @@ const Header = ({ handleTheme }) => {
     <span className={'material-icons icon'}>dark_mode</span>
   );
 
+const Header = ({ handleTheme }) => {
+  const { isDarkMode } = useDarkMode();
   return (
     <CustomHeader>
       <div className="header__profile">
@@ -24,7 +25,7 @@ const Header = ({ handleTheme }) => {
       <div className="header__content">
         <div className="header__toggle">
           <button className="toggle__button" onClick={handleTheme}>
-            {handleThemeIcon}
+            <ThemeIcon isDarkMode={isDarkMode}/>
           </button>
         </div>
         <h1 className="content__title">Agustin Cartaya</h1>

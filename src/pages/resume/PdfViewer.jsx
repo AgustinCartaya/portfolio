@@ -29,14 +29,14 @@ const ThemeIcon = ({isDarkMode}) => isDarkMode ? (
 
 const PdfViewer = () => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const { isDarkMode } = useDarkMode();
 
-  const handleLoadSuccess = () => setLoading(false);
+  const handleLoadSuccess = () => setIsLoading(false);
 
   return (
     <CustomResumeSection>
-      {!loading && (
+      {!isLoading && (
         <Container onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
           {showTooltip && <Tooltip>Download CV</Tooltip>}
           <DownloadButton onClick={handleDownload} aria-label="Download CV">

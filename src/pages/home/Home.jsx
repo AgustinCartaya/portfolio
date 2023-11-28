@@ -1,54 +1,48 @@
-import { Suspense } from 'react';
 import styled from 'styled-components';
-import { LoadingMessage } from '../../components';
 
 const Home = () => {
   return (
-    <Suspense fallback={<LoadingMessage message="Loading Home..." />}>
-      <CustomHomeSection>
-        <Title>Biography</Title>
+    <CustomHomeSection>
+      <Title>Biography</Title>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, quam vitae gravida dapibus, arcu tortor commodo urna, nec tristique urna elit
-          ac ligula. Ut nec quam euismod, vehicula risus ac, scelerisque metus. Nulla facilisi. Nullam euismod augue vitae diam cursus, at tincidunt lacus
-          convallis. Curabitur luctus lacus quis ex imperdiet sodales. Sed consectetur elit a accumsan hendrerit. Fusce congue justo a orci fermentum aliquam.
-          Vivamus dapibus sapien ut ligula pellentesque cursus. Sed facilisis nec arcu non hendrerit. Curabitur ut tortor feugiat, fermentum dolor et, consequat
-          elit.
-        </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, quam vitae gravida dapibus, arcu tortor commodo urna, nec tristique urna elit ac
+        ligula. Ut nec quam euismod, vehicula risus ac, scelerisque metus. Nulla facilisi. Nullam euismod augue vitae diam cursus, at tincidunt lacus convallis.
+        Curabitur luctus lacus quis ex imperdiet sodales. Sed consectetur elit a accumsan hendrerit. Fusce congue justo a orci fermentum aliquam. Vivamus
+        dapibus sapien ut ligula pellentesque cursus. Sed facilisis nec arcu non hendrerit. Curabitur ut tortor feugiat, fermentum dolor et, consequat elit.
+      </p>
 
-        <Title>Research Interests</Title>
+      <Title>Research Interests</Title>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, quam vitae gravida dapibus, arcu tortor commodo urna, nec tristique urna elit
-          ac ligula. Ut nec quam euismod, vehicula risus ac, scelerisque metus. Nulla facilisi. Nullam euismod augue vitae diam cursus, at tincidunt lacus
-          convallis. Curabitur luctus lacus quis ex imperdiet sodales. Sed consectetur elit a accumsan hendrerit. Fusce congue justo a orci fermentum aliquam.
-          Vivamus dapibus sapien ut ligula pellentesque cursus. Sed facilisis nec arcu non hendrerit. Curabitur ut tortor feugiat, fermentum dolor et, consequat
-          elit.
-        </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, quam vitae gravida dapibus, arcu tortor commodo urna, nec tristique urna elit ac
+        ligula. Ut nec quam euismod, vehicula risus ac, scelerisque metus. Nulla facilisi. Nullam euismod augue vitae diam cursus, at tincidunt lacus convallis.
+        Curabitur luctus lacus quis ex imperdiet sodales. Sed consectetur elit a accumsan hendrerit. Fusce congue justo a orci fermentum aliquam. Vivamus
+        dapibus sapien ut ligula pellentesque cursus. Sed facilisis nec arcu non hendrerit. Curabitur ut tortor feugiat, fermentum dolor et, consequat elit.
+      </p>
 
-        <ul>
-          <li>
-            <strong>Lorem ipsum dolor sit amet.</strong>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </li>
-          <li>
-            <strong>Lorem ipsum dolor sit amet.</strong>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </li>
-          <li>
-            <strong>Lorem ipsum dolor sit amet.</strong>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </li>
-          <li>
-            <strong>Lorem ipsum dolor sit amet.</strong>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </li>
-        </ul>
-      </CustomHomeSection>
-    </Suspense>
+      <ul>
+        <li>
+          <strong>Lorem ipsum dolor sit amet.</strong>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </li>
+        <li>
+          <strong>Lorem ipsum dolor sit amet.</strong>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </li>
+        <li>
+          <strong>Lorem ipsum dolor sit amet.</strong>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </li>
+        <li>
+          <strong>Lorem ipsum dolor sit amet.</strong>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </li>
+      </ul>
+    </CustomHomeSection>
   );
 };
 
