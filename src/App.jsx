@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { Header, NavigationBar } from './components';
 import Theme from './Theme';
 import useDarkMode from './hooks/useDarkMode';
+import { Suspense } from 'react';
 
 const App = () => {
   const { isDarkMode, setIsDarkMode } = useDarkMode();
@@ -20,7 +21,9 @@ const App = () => {
         <Container>
           <Header handleTheme={handleTheme} />
           <NavigationBar />
-          <Outlet />
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
         </Container>
       </Theme>
     </CustomMain>

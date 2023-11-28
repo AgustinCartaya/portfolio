@@ -4,7 +4,7 @@ const username = 'AgustinCartaya';
 const repo = 'portfolio';
 const rawUrl = `https://raw.githubusercontent.com/${username}/${repo}/main/`;
 
- const fetchDataFromUrls = async (relativePath) => {
+ const fetchDataFromGithubUrls = async (relativePath) => {
   try {
     const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${relativePath}`;
     const projectUrls = await fetchDataFromGithubApi(apiUrl)
@@ -25,4 +25,4 @@ const rawUrl = `https://raw.githubusercontent.com/${username}/${repo}/main/`;
   }
 };
 
-export default fetchDataFromUrls
+export default fetchDataFromGithubUrls

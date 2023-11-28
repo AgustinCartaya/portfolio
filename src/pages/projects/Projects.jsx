@@ -1,57 +1,67 @@
+import LazyLoad from 'react-lazyload';
+import { Suspense } from 'react';
 import uniqid from 'uniqid';
 import styled from 'styled-components';
 import Carousel from 'nuka-carousel';
 import { useQuery } from '@tanstack/react-query';
-import fetchDataFromUrls from '../../api/fetchDataFromGithubUrls';
+import fetchDataFromGithubUrls from '../../api/fetchDataFromGithubUrls';
+import { LoadingMessage } from '../../components';
 
 const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
-const CarouselButton = image => (
+const CarouselButton = ({ image }) => (
   <img style={{ filter: 'invert(1)' }} width="15" height="15" src={`https://img.icons8.com/ios-glyphs/30/000000/${image}.png`} alt={image} />
 );
 
 const Projects = () => {
   const { data: projects, isLoading } = useQuery({
     queryKey: ['projects'],
-    queryFn: () => fetchDataFromUrls('src/my_projects'),
+    queryFn: () => fetchDataFromGithubUrls('src/my_projects'),
     config: {
       staleTime: 86400000, // 24 hours
     },
   });
 
   return (
-    <>
-      {isLoading ? null : (
-        <CustomProjectSection>
-          {Array(3).fill(projects).flat().map(({ title, path, images, description }) => {
-            return (
-              <CustomProjectCard key={uniqid()}>
-                <Carousel
-                  wrapAround={true}
-                  className="card__carousel"
-                  defaultControlsConfig={{
-                    nextButtonText: CarouselButton('forward'),
-                    prevButtonText: CarouselButton('back'),
-                    prevButtonStyle: carouselBtnStyles(),
-                    nextButtonStyle: carouselBtnStyles(),
-                  }}
-                >
-                  {images.map(image => {
-                    return <img key={uniqid()} className="carousel_img" src={`${URL_IMAGE_BASE}/${path}/images/${image}`} />;
-                  })}
-                </Carousel>
-                <h4 className="title">{title}</h4>
-                <p className="content">{description}</p>
-                <CustomContainerBtn>
-                  <CustomButton>Code</CustomButton>
-                  <CustomButton>Paper</CustomButton>
-                  <CustomButton>Report</CustomButton>
-                </CustomContainerBtn>
-              </CustomProjectCard>
-            );
-          })}
-        </CustomProjectSection>
-      )}
-    </>
+    <LazyLoad height={50}>
+      <Suspense fallback={null}>
+        {isLoading ? (
+          <LoadingMessage message="Loading Projects..." />
+        ) : (
+          <CustomProjectSection>
+            {Array(3)
+              .fill(projects)
+              .flat()
+              .map(({ title, path, images, description }) => {
+                return (
+                  <CustomProjectCard key={uniqid()}>
+                    <Carousel
+                      wrapAround={true}
+                      className="card__carousel"
+                      defaultControlsConfig={{
+                        nextButtonText: <CarouselButton image="forward" />,
+                        prevButtonText: <CarouselButton image="back" />,
+                        prevButtonStyle: carouselBtnStyles(),
+                        nextButtonStyle: carouselBtnStyles(),
+                      }}
+                    >
+                      {images.map(image => {
+                        return <img key={uniqid()} className="carousel_img" src={`${URL_IMAGE_BASE}/${path}/images/${image}`} alt={image}/>;
+                      })}
+                    </Carousel>
+                    <p className="title">{title}</p>
+                    <p className="content">{description}</p>
+                    <CustomContainerBtn>
+                      <CustomButton>Code</CustomButton>
+                      <CustomButton>Paper</CustomButton>
+                      <CustomButton>Report</CustomButton>
+                    </CustomContainerBtn>
+                  </CustomProjectCard>
+                );
+              })}
+          </CustomProjectSection>
+        )}
+      </Suspense>
+    </LazyLoad>
   );
 };
 
@@ -91,6 +101,7 @@ const CustomProjectCard = styled.div`
   transition: 0.5s all ease;
 
   .title {
+    font-weight: 700;
     font-size: 18px;
     margin-bottom: 0;
   }

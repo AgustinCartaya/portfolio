@@ -1,66 +1,34 @@
-import React, { lazy, Suspense } from 'react';
-import { LoadingMessage } from './components';
-import LazyLoad from 'react-lazyload';
-
+import React, { lazy } from 'react';
+import App from "./App"
 const Home = lazy(() => import('./pages/home/Home'));
 const Projects = lazy(() => import('./pages/projects/Projects'));
 const Publications = lazy(() => import('./pages/publications/Publications'));
 const Awards = lazy(() => import('./pages/awards/Awards'));
 const Resume = lazy(() => import('./pages/resume/Resume'));
 
-const App = lazy(() => import('./App'));
-
 const Routes = {
   path: '/',
-  element: (
-    <Suspense fallback={<LoadingMessage message="Loading..." />}>
-      <App />
-    </Suspense>
-  ),
+  element: <App />,
   children: [
     {
       path: '/',
-      element: (
-        <Suspense fallback={<LoadingMessage message="Loading..." />}>
-          <Home />
-        </Suspense>
-      ),
+      element: <Home />,
     },
     {
       path: '/projects',
-      element: (
-        <LazyLoad height={50}>
-          <Suspense fallback={<LoadingMessage message="Loading Projects..." />}>
-            <Projects />
-          </Suspense>
-        </LazyLoad>
-      ),
+      element: <Projects />,
     },
     {
       path: '/publications',
-      element: (
-        <LazyLoad height={50}>
-          <Suspense fallback={<LoadingMessage message="Loading Publications..." />}>
-            <Publications />
-          </Suspense>
-        </LazyLoad>
-      ),
+      element: <Publications />,
     },
     {
       path: '/awards',
-      element: (
-        <Suspense fallback={<LoadingMessage message="Loading..." />}>
-          <Awards />
-        </Suspense>
-      ),
+      element: <Awards />,
     },
     {
       path: '/resume',
-      element: (
-        <Suspense fallback={null}>
-          <Resume />
-        </Suspense>
-      ),
+      element: <Resume />,
     },
   ],
 };

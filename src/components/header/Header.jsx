@@ -57,8 +57,8 @@ const CustomHeader = styled.header`
 
   .profile__image {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    width: 237px;
+    height: 245px;
   }
 
   .header__toggle {

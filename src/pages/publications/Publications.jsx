@@ -1,40 +1,50 @@
+import LazyLoad from 'react-lazyload';
 import uniqid from 'uniqid';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import fetchDataFromUrls from '../../api/fetchDataFromGithubUrls';
+import fetchDataFromGithubUrls from '../../api/fetchDataFromGithubUrls';
+import { Suspense } from 'react';
+import { LoadingMessage } from '../../components';
 
 const URL_IMAGE_BASE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
 
 const Publications = () => {
   const { data: publications, isLoading } = useQuery({
     queryKey: ['publications'],
-    queryFn: () => fetchDataFromUrls('src/my_projects'),
+    queryFn: () => fetchDataFromGithubUrls('src/my_projects'),
     config: {
       staleTime: 86400000, // 24 hours
     },
   });
 
   return (
-    <>
-      {isLoading ? null : (
-        <CustomPublicationsSection>
-          {Array(3).fill(publications).flat().map(({ title, path, images, description }) => {
-            return (
-              <CustomPublicationsCard key={uniqid()}>
-                <img loading="lazy" className="img" src={`${URL_IMAGE_BASE}/${path}/images/${images.at(-1)}`} />
-                <div className="overlay">
-                  <h4 className="title">{title}</h4>
-                </div>
-                <p className="content">{description}</p>
-                <CustomContainerBtn>
-                  <CustomButton>Download</CustomButton>
-                </CustomContainerBtn>
-              </CustomPublicationsCard>
-            );
-          })}
-        </CustomPublicationsSection>
-      )}
-    </>
+    <LazyLoad height={50}>
+      <Suspense fallback={null}>
+        {isLoading ? (
+          <LoadingMessage message="Loading Publications..." />
+        ) : (
+          <CustomPublicationsSection>
+            {Array(3)
+              .fill(publications)
+              .flat()
+              .map(({ title, path, images, description }) => {
+                return (
+                  <CustomPublicationsCard key={uniqid()}>
+                    <img className="img" src={`${URL_IMAGE_BASE}/${path}/images/${images.at(-1)}`} alt={images.at(-1)}/>
+                    <div className="overlay">
+                      <h4 className="title">{title}</h4>
+                    </div>
+                    <p className="content">{description}</p>
+                    <CustomContainerBtn>
+                      <CustomButton>Download</CustomButton>
+                    </CustomContainerBtn>
+                  </CustomPublicationsCard>
+                );
+              })}
+          </CustomPublicationsSection>
+        )}
+      </Suspense>
+    </LazyLoad>
   );
 };
 

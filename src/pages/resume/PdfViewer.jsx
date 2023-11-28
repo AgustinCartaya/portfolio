@@ -9,31 +9,30 @@ import useDarkMode from '../../hooks/useDarkMode';
 import pdf from '../../CV.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+const pageNumber = 1;
+
+const handleDownload = () => {
+  const link = document.createElement('a');
+  link.href = pdf;
+  link.download = 'CV.pdf';
+  link.click();
+};
+
+const ThemeIcon = ({isDarkMode}) => isDarkMode ? (
+  <span className={'material-icons icon'}>file_download</span>
+) : (
+  <span className={'material-icons icon'} style={{ color: '#fff' }}>
+    file_download
+  </span>
+);
+
 
 const PdfViewer = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [loading, setLoading] = useState(true);
   const { isDarkMode } = useDarkMode();
-  const pageNumber = 1;
 
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = pdf;
-    link.download = 'CV.pdf';
-    link.click();
-  };
-
-  const handleLoadSuccess = () => {
-    setLoading(false);
-  };
-
-  const handleThemeIcon = isDarkMode ? (
-    <span className={'material-icons icon'}>file_download</span>
-  ) : (
-    <span className={'material-icons icon'} style={{ color: '#fff' }}>
-      file_download
-    </span>
-  );
+  const handleLoadSuccess = () => setLoading(false);
 
   return (
     <CustomResumeSection>
@@ -41,7 +40,7 @@ const PdfViewer = () => {
         <Container onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
           {showTooltip && <Tooltip>Download CV</Tooltip>}
           <DownloadButton onClick={handleDownload} aria-label="Download CV">
-            {handleThemeIcon}
+            <ThemeIcon isDarkMode={isDarkMode}/>
           </DownloadButton>
         </Container>
       )}

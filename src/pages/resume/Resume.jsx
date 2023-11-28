@@ -3,7 +3,7 @@ const LazyPdfViewer = lazy(() => import('./PdfViewer'));
 
 const Resume = () => {
   return (
-    <Suspense fallback={''}>
+    <Suspense fallback={null}>
       <LazyPdfViewer />
     </Suspense>
   );
