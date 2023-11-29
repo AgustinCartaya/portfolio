@@ -3,23 +3,15 @@ import { Outlet } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Header, LoadingMessage, NavigationBar } from './components';
 import Theme from './Theme';
-import useDarkMode from './hooks/useDarkMode';
 import { Suspense } from 'react';
 
 const App = () => {
-  const { isDarkMode, setIsDarkMode } = useDarkMode();
-
-  const handleTheme = () => {
-    setIsDarkMode(prevMode => !prevMode);
-    localStorage.setItem('darkmode', JSON.stringify(!isDarkMode));
-  };
-
   return (
     <CustomMain>
       <Theme>
         <GlobalStyle />
         <Container>
-          <Header handleTheme={handleTheme} />
+          <Header />
           <NavigationBar />
           <Suspense fallback={<LoadingMessage message=""/>}>
             <Outlet />
