@@ -36,7 +36,7 @@ export const Card = ({ title, path, images, description }) => {
       <p className="title">{title}</p>
       <p className="content">{description}</p>
       <CustomContainerBtn>
-        {['Code', 'Paper', 'Report'].map(text => <CustomButton>{text}</CustomButton>)}
+        {['Code', 'Paper', 'Report'].map(text => <CustomButton key={uniqid()}>{text}</CustomButton>)}
       </CustomContainerBtn>
     </CustomProjectCard>
   );

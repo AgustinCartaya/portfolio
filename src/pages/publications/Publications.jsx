@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import fetchDataFromGithubUrls from '../../api/fetchDataFromGithubUrls';
 import { LoadingMessage } from '../../components';
 import { Card as CustomPublicationsCard } from "./Card"
+import uniqid from "uniqid"
 
 const Publications = () => {
   const { data: publications, isLoading } = useQuery({
@@ -25,7 +26,7 @@ const Publications = () => {
             .flat()
             .map((props) => {
               return (
-                <CustomPublicationsCard {...props}/>
+                <CustomPublicationsCard key={uniqid()} {...props}/>
               );
             })}
         </CustomPublicationsSection>

@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import fetchDataFromGithubUrls from '../../api/fetchDataFromGithubUrls';
 import { LoadingMessage } from '../../components';
 import { Card as CustomProjectCard } from './Card';
-
+import uniqid from "uniqid"
 
 const Projects = () => {
   const { data: projects, isLoading } = useQuery({
@@ -26,7 +26,7 @@ const Projects = () => {
             .flat()
             .map((props) => {
               return (
-                <CustomProjectCard {...props}/>
+                <CustomProjectCard key={uniqid()} {...props}/>
               );
             })}
         </CustomProjectSection>
