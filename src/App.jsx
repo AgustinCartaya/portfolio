@@ -7,24 +7,18 @@ import { Suspense } from 'react';
 
 const App = () => {
   return (
-    // <CustomMain>
-    //   <Theme>
-    //     <GlobalStyle />
-    //     <Container>
-    //       <Header />
-    //       <NavigationBar />
-    //       <Suspense fallback={<LoadingMessage message=""/>}>
-    //         <Outlet />
-    //       </Suspense>
-    //     </Container>
-    //   </Theme>
-    // </CustomMain>
-
-    <div>
-      <a href='https://github.com/AgustinCartaya' target='_blank'>github</a>
-      <a href='./test.pdf'>PDF </a>
-      {/* <a href='https://drive.google.com/file/d/1U3yGiLsa7A-CH8y79uZBQEhOMvnDPny0/view?usp=sharing' target='_blank'>PDF</a> */}
-    </div>
+    <CustomMain>
+      <Theme>
+        <GlobalStyle />
+        <Container>
+          <Header />
+          <NavigationBar />
+          <Suspense fallback={<LoadingMessage message=""/>}>
+            <Outlet />
+          </Suspense>
+        </Container>
+      </Theme>
+    </CustomMain>
   );
 };
 

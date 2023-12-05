@@ -5,7 +5,7 @@ const fetchDataFromGithubApi = async (url) => {
     const paths = data.map(item => item.path);
     return paths;
   } catch (error) {
-    new Error('Oops, an error occurred: ' + error);
+    throw new Error('Oops, an error occurred: ' + error);
   }
 };
 

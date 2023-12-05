@@ -43,14 +43,6 @@ const CustomProjectSection = styled.div`
   gap: 30px;
 
   @media (max-width: 1100px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 1100px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
 `;

@@ -6,10 +6,7 @@ export const Card = ({ title, path, images, description }) => {
   return (
     <CustomPublicationsCard key={uniqid()}>
       <img className="img" src={`${BASE_PATH_IMAGE}/${path}/images/${images.at(-1)}`} alt={images.at(-1)} />
-      {/* <div className="overlay"> */}
-      {/* </div> */}
       <h4 className="title">{title}</h4>
-
       <p className="content">{description}</p>
       <CustomContainerBtn>
         <CustomButton>Download</CustomButton>
@@ -27,47 +24,35 @@ const CustomPublicationsCard = styled.div`
   box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 25px;
   transition: 0.5s all ease;
 
-  .title,
-  .content {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   .title {
-    margin: 0;
+    margin: 20px 0 0 0;
     font-size: 22px;
-    -webkit-line-clamp: 3;
   }
 
   .content {
+    text-align: justify;
     font-size: 14px;
-    -webkit-line-clamp: 6;
+    height: 150px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: lightgray;
+      border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #000000;
+    }
   }
 
   .img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-  }
-
-  .overlay {
-    width: -webkit-fill-available;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    background-color: rgba(34, 34, 34, 0.5);
-    padding: 30px;
-    height: 100px;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover .overlay {
-    transform: scaleY(1);
   }
 `;
 
