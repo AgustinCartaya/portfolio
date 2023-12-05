@@ -52,7 +52,7 @@ const CustomProjectCard = styled.div`
 
   .title {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 0;
   }
 
@@ -63,6 +63,7 @@ const CustomProjectCard = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: justify;
   }
 
   .slider-list {

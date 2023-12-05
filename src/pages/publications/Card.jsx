@@ -6,9 +6,10 @@ export const Card = ({ title, path, images, description }) => {
   return (
     <CustomPublicationsCard key={uniqid()}>
       <img className="img" src={`${BASE_PATH_IMAGE}/${path}/images/${images.at(-1)}`} alt={images.at(-1)} />
-      <div className="overlay">
-        <h4 className="title">{title}</h4>
-      </div>
+      {/* <div className="overlay"> */}
+      {/* </div> */}
+      <h4 className="title">{title}</h4>
+
       <p className="content">{description}</p>
       <CustomContainerBtn>
         <CustomButton>Download</CustomButton>
@@ -36,8 +37,7 @@ const CustomPublicationsCard = styled.div`
 
   .title {
     margin: 0;
-    font-size: 18px;
-    color: #fff;
+    font-size: 22px;
     -webkit-line-clamp: 3;
   }
 
