@@ -1,5 +1,5 @@
 import uniqid from 'uniqid';
-import { NavLink, useLocation, useNavigate, useResolvedPath } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const nav_items = [
