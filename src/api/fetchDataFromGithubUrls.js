@@ -6,7 +6,7 @@ const rawUrl = `https://raw.githubusercontent.com/${username}/${repo}/main/`;
 
  const fetchDataFromGithubUrls = async (relativePath) => {
   try {
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${relativePath}`;
+    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/src/data/${relativePath}`;
     const projectUrls = await fetchDataFromGithubApi(apiUrl)
     const responses = await Promise.all(projectUrls.map(url => fetch(`${rawUrl}${url}/description.json`)));
     const data = await Promise.all(
