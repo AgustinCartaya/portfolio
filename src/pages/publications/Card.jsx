@@ -1,11 +1,15 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-const BASE_PATH_IMAGE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/data/projects';
+import { BASE_PATH } from '../../helpers';
 
 export const Card = ({ title, path, images, description }) => {
   return (
     <CustomPublicationsCard key={uniqid()}>
-      <img className="img" src={`${BASE_PATH_IMAGE}/${path}/images/${images.at(-1)}`} alt={images.at(-1)} />
+      <img
+        className="img"
+        src={`${BASE_PATH}/${path}/images/${images.at(-1)}`}
+        alt={images.at(-1)}
+      />
       <h4 className="title">{title}</h4>
       <p className="content">{description}</p>
       <CustomContainerBtn>

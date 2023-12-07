@@ -9,7 +9,7 @@ import uniqid from "uniqid"
 const Publications = () => {
   const { data: publications, isLoading } = useQuery({
     queryKey: ['publications'],
-    queryFn: () => fetchDataFromGithubUrls('publications'),
+    queryFn: () => fetchDataFromGithubUrls('projects'),
     config: {
       staleTime: 86400000, // 24 hours
     },

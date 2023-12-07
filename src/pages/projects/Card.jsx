@@ -1,6 +1,7 @@
 import uniqid from 'uniqid';
 import Carousel from 'nuka-carousel';
 import styled from 'styled-components';
+import { BASE_PATH } from '../../helpers';
 
 const carouselBtnStyles = {
   display: 'grid',
@@ -10,11 +11,16 @@ const carouselBtnStyles = {
   borderRadius: '50%',
   padding: '0',
 };
-const BASE_PATH_IMAGE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/data/projects';
-const CarouselButton = ({ image }) => (
-  <img style={{ filter: 'invert(1)' }} width="15" height="15" src={`https://img.icons8.com/ios-glyphs/30/000000/${image}.png`} alt={image} />
-);
 
+const CarouselButton = ({ image }) => (
+  <img
+    style={{ filter: 'invert(1)' }}
+    width="15"
+    height="15"
+    src={`https://img.icons8.com/ios-glyphs/30/000000/${image}.png`}
+    alt={image}
+  />
+);
 
 export const Card = ({ title, path, images, description }) => {
   return (
@@ -30,13 +36,22 @@ export const Card = ({ title, path, images, description }) => {
         }}
       >
         {images.map(image => {
-          return <img key={uniqid()} className="carousel_img" src={`${BASE_PATH_IMAGE}/${path}/images/${image}`} alt={image} />;
+          return (
+            <img
+              key={uniqid()}
+              className="carousel_img"
+              src={`${BASE_PATH}/${path}/images/${image}`}
+              alt={image}
+            />
+          );
         })}
       </Carousel>
       <p className="title">{title}</p>
       <p className="content">{description}</p>
       <CustomContainerBtn>
-        {['Code', 'Paper', 'Report'].map(text => <CustomButton key={uniqid()}>{text}</CustomButton>)}
+        {['Code', 'Paper', 'Report'].map(text => (
+          <CustomButton key={uniqid()}>{text}</CustomButton>
+        ))}
       </CustomContainerBtn>
     </CustomProjectCard>
   );
