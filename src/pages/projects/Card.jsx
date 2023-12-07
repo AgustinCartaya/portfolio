@@ -10,7 +10,7 @@ const carouselBtnStyles = {
   borderRadius: '50%',
   padding: '0',
 };
-const BASE_PATH_IMAGE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
+const BASE_PATH_IMAGE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/data/projects';
 const CarouselButton = ({ image }) => (
   <img style={{ filter: 'invert(1)' }} width="15" height="15" src={`https://img.icons8.com/ios-glyphs/30/000000/${image}.png`} alt={image} />
 );

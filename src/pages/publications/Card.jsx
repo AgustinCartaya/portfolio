@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-const BASE_PATH_IMAGE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/my_projects';
+const BASE_PATH_IMAGE = 'https://raw.githubusercontent.com/AgustinCartaya/portfolio/main/src/data/projects';
 
 export const Card = ({ title, path, images, description }) => {
   return (

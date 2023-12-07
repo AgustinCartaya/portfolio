@@ -3,7 +3,6 @@ import fetchDataFromGithubApi from '../api/fetchDataFromGithubApi';
 const username = 'AgustinCartaya';
 const repo = 'portfolio';
 const rawUrl = `https://raw.githubusercontent.com/${username}/${repo}/main/`;
-
  const fetchDataFromGithubUrls = async (relativePath) => {
   try {
     const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/src/data/${relativePath}`;
